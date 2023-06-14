@@ -1,6 +1,6 @@
 Thanks for downloading this template!
 
-Template Name: EstateAgency
-Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
+Template Name: Logis
+Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
 Author: BootstrapMade.com
 License: https://bootstrapmade.com/license/
