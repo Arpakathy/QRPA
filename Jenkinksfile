@@ -43,7 +43,8 @@ pipeline{
 		stage('Deploy') {
 
 			steps {
-				sh 'aws ecs update-service --cluster KathCluster --service kathService1 --force-new-deployment --region ca-central-1'
+                                sh 'echo deployment done'
+				// sh 'aws ecs update-service --cluster KathCluster --service kathService1 --force-new-deployment --region ca-central-1'
 			}
 		}
 		
