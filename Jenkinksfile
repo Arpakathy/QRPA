@@ -5,25 +5,10 @@ pipeline{
 	stages {
 	    
 	    
-	    stage('Cleanupworkdir') {
-
-			steps {
-				sh 'rm -rf QRPA'
-			}
-		}
-	    
-	    stage('Chekout') {
-
-			steps {
-				sh 'git clone https://github.com/Arpakathy/QRPA.git'
-			}
-		}
-	    
-	    
 	    stage('Build') {
 
 			steps {   
-				sh 'docker build -t kathyaaa/kathim:latest QRPA'
+				sh 'docker build -t kathyaaa/kathim:latest .'
 			}
 		}
 		
