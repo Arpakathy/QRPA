@@ -13,11 +13,11 @@ pipeline{
 		}
 
 	     stage('Sonarqube analysis') {
-                          // environment {
-                          //  scanner-home = tool 'sonnar-scanner'
-                          // }
+                           environment {
+                            scanner-home = tool 'mykathsonarscanner'
+                           }
                           steps {
-                                  withSonarQubeEnv(credentialsId: 'SONAR_TOKEN', installationName: 'Sonarcloud')
+                                  withSonarQubeEnv(credentialsId: 'SONAR_TOKEN', installationName: 'sonarcloud')
                           {
                               sh '''
 		                        sonar-scanner \
