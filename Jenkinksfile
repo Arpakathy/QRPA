@@ -11,9 +11,26 @@ pipeline{
 				sh 'docker build -t kathyaaa/kathim:latest .'
 			}
 		}
+
+	     stage('Sonarqube analysis') {
+                          // environment {
+                          //  scanner-home = tool 'sonnar-scanner'
+                          // }
+                          steps {
+                                  withSonarQubeEnv(credentialsId: 'SONAR_TOKEN', installationName: 'Sonarcloud')
+                          {
+                              sh '''
+		                        sonar-scanner \
+					  -Dsonar.organization=arpakathy \
+					  -Dsonar.projectKey=arpakathy_kathnewprj \
+					  -Dsonar.sources=. \
+					  -Dsonar.host.url=https://sonarcloud.io
+                              ''' 
+                }
+            }
+        }
 		
-		
-		stage('Push') {
+	     stage('Push') {
 		    
 		    steps { 
 		        
@@ -25,7 +42,7 @@ pipeline{
 			}
 		}
 		
-		stage('Deploy') {
+	      stage('Deploy') {
 
 			steps {
                                 sh 'echo deployment done'
