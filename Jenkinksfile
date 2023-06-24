@@ -20,7 +20,7 @@ pipeline{
                                   withSonarQubeEnv(credentialsId: 'SONAR_TOKEN', installationName: 'sonarcloud')
                           {
                               sh '''
-		                        sonar-scanner \
+		                     ${scannerhome}/bin/sonar-scanner
 					  -Dsonar.organization=arpakathy \
 					  -Dsonar.projectKey=arpakathy_kathnewprj \
 					  -Dsonar.sources=. \
