@@ -20,8 +20,7 @@ pipeline{
                                   withSonarQubeEnv(credentialsId: 'SONAR_TOKEN', installationName: 'sonarcloud')
                           {
                               sh '''
-		                     ${scannerhome}/bin/sonar-scanner
-					  -Dsonar.organization=arpakathy -Dsonar.projectKey=arpakathy_kathnewprj -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io
+		                     ${scannerhome}/bin/sonar-scanner -Dsonar.organization=arpakathy -Dsonar.projectKey=arpakathy_kathnewprj -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io
                               ''' 
                 }
             }
