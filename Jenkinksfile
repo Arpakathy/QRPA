@@ -14,7 +14,7 @@ pipeline{
 
 	     stage('Sonarqube analysis') {
                            environment {
-                            scanner-home = tool ' mykathsonarscanner '
+                            scanner-home = tool 'mykathsonarscanner'
                            }
                           steps {
                                   withSonarQubeEnv(credentialsId: 'SONAR_TOKEN', installationName: 'sonarcloud')
