@@ -18,13 +18,27 @@ pipeline{
                            }
                           steps {
                                   withSonarQubeEnv(credentialsId: 'SONAR_TOKEN', installationName: 'sonarcloud')
-                          {
+                             {
                               sh '''
 		                     ${scannerhome}/bin/sonar-scanner -Dsonar.organization=arpakathy -Dsonar.projectKey=arpakathy_kathnewprj -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io
                               ''' 
-                }
-            }
-        }
+                             }
+                          }    
+             }
+
+
+             stage('Quality Gate') {
+
+                       timeout( time: 50 , unit: 'SECOND') {
+
+                          def demo = WaitForQualityGate()
+                             if (demo.status != 'OK') {
+                                 echo "Une erreur est survenue dans votre pipeline a cause du niveau de quality gate qui est $(demo.satutus)"                            
+
+                             }
+                       }
+             }
+
 		
 	     stage('Push') {
 		    
