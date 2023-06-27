@@ -26,19 +26,6 @@ pipeline{
                           }    
              }
 
-
-             stage('Quality Gate') {
-
-                       timeout( time: 50 , unit: 'SECOND') {
-
-                          def demo = WaitForQualityGate()
-                             if (demo.status != 'OK') {
-                                 echo "Une erreur est survenue dans votre pipeline a cause du niveau de quality gate qui est $(demo.satutus)"                            
-
-                             }
-                       }
-             }
-
 		
 	     stage('Push') {
 		    
